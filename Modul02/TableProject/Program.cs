@@ -2,6 +2,8 @@
 
 namespace TableProject
 {
+	enum ti{ime=0, familia, godini}; //декларация
+
 	class MainClass
 	{
 		public static void Main (string[] args)
@@ -9,16 +11,18 @@ namespace TableProject
 			//Дефиниране на таблица
 			string[,] table = new string[2, 3];
 			//Въвеждане на първи ред
-			table[0, 0] = "Калоян"; table[0, 1] = "Костов"; table[0, 2] = "27";
+			table[0, (int) ti.ime] = "Калоян"; table[0, (int) ti.familia ] = "Костов"; table[0, (int) ti.godini ] = "27";
 
 			//Въвеждане на втори ред
-			table[1, 0] = "Мариан";	table[1, 1] = "Костов";	table[1, 2] = "34";
+			table[1, (int) ti.ime ] = "Мариан"; table[1, (int) ti.familia ] = "Костов";	table[1, (int) ti.godini ] = "34";
 
 			// Печат//
 			Console.Write ("Кой ред искате да видите: ");
 			int _index = Convert.ToInt32 (Console.ReadLine ()) - 1;
 
-			Console.WriteLine ((table[_index,0])[0] + ". " + table[0,1] + ", " + table[_index,2] + " г.");
+			Console.WriteLine ((table[_index, (int) ti.ime])[0]
+					   + ". " + table[_index,(int) ti.familia ]
+					   + ", " + table[_index,(int) ti.godini ] + " г.");
 
 		}
 	}
